@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>大拇指点赞功能</title>
+	<meta charset="utf-8" content-type="text/html" />
+	<link href="./css/praise.css" rel="stylesheet"/>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.4.4/babel.min.js"></script>-->
+	<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+	<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+	<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+	<!--<script type="module" src='./components/ThumbPraise.js'></script>-->
+	<script type="module">
+		import ThumbPraise from './components/ThumbPraise.js';
+	</script>
+</head>
+<body>
+	<div class="circleBG">
+		<p id="count">点击次数<span>count</span></p>
+	</div>
+
+	<script>
+		/*$.fn.praise=function(container){
+			new ThumbPraise(container);
+		}
+		$("#circleBG").praise('circleBG');*/
+	</script>
+</body>
+</html>
