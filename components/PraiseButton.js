@@ -9,7 +9,6 @@ export class PraiseButton{
 	}
 	addNum(e){
 		this.number=this.number+this.step;
-		const numNode=document.getElementById("count").getElementsByTagName("span")[0];
-		numNode.innerText=this.number;
+		return this.number;
 	}
 }

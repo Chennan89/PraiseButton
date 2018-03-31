@@ -72,9 +72,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ThumbPraise_js__ = __webpack_require__(1);
 
 
-//export default ThumbPraise;
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__ThumbPraise_js__["a" /* default */]);
+/*for webpack
 var ele=document.getElementsByClassName("circleBG")[0];
-new __WEBPACK_IMPORTED_MODULE_0__ThumbPraise_js__["a" /* default */]($(ele));
+new ThumbPraise($(ele));*/
 
 
 /***/ }),
@@ -107,14 +108,19 @@ class ThumbPraise extends __WEBPACK_IMPORTED_MODULE_0__PraiseButton_js__["a" /* 
 	addTpl(){
 		//const container=document.getElementsByClassName(this.container)[0];
 		this.container.innerHTML=this.tpl;
-		this.container.onclick=this.addNum.bind(this);
+		this.container.onclick=()=>{
+			let number=this.addNum();
+			console.log(number,'*********')
+			this.updateNum(number);
+		}
+	}
+	//更改页面上显示的个数
+	updateNum(number){console.log(this,this.number,'-----------')
+		const numNode=document.getElementById("count").getElementsByTagName("span")[0];
+		numNode.innerText=number;
 	}
 }
 /* harmony default export */ __webpack_exports__["a"] = (ThumbPraise);
-//var praise=new ThumbPraise(tpl);
-//console.log(praise.addNum());
-//praise.addTpl();
-//export default ThumbPraise;
 
 /***/ }),
 /* 2 */
@@ -132,8 +138,8 @@ class PraiseButton{
 	}
 	addNum(e){
 		this.number=this.number+this.step;
-		const numNode=document.getElementById("count").getElementsByTagName("span")[0];
-		numNode.innerText=this.number;
+		console.log(this.number,'>>>?????????????????????')
+		return this.number;
 	}
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = PraiseButton;

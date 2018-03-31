@@ -22,7 +22,15 @@ class ThumbPraise extends PraiseButton{
 	addTpl(){
 		//const container=document.getElementsByClassName(this.container)[0];
 		this.container.innerHTML=this.tpl;
-		this.container.onclick=this.addNum.bind(this);
+		this.container.onclick=()=>{
+			let number=this.addNum();//用箭头函数 this指向ThumbPraise对象
+			this.updateNum(number);
+		}
+	}
+	//更改页面上显示的个数
+	updateNum(number){
+		const numNode=document.getElementById("count").getElementsByTagName("span")[0];
+		numNode.innerText=number;
 	}
 }
 export default ThumbPraise;

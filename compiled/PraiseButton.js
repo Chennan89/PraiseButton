@@ -1,6 +1,6 @@
 (function (global, factory) {
 	if (typeof define === "function" && define.amd) {
-		define(["exports"], factory);
+		define(['exports'], factory);
 	} else if (typeof exports !== "undefined") {
 		factory(exports);
 	} else {
@@ -11,7 +11,7 @@
 		global.PraiseButton = mod.exports;
 	}
 })(this, function (exports) {
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -56,11 +56,11 @@
 		}
 
 		_createClass(PraiseButton, [{
-			key: "addNum",
+			key: 'addNum',
 			value: function addNum(e) {
 				this.number = this.number + this.step;
-				var numNode = document.getElementById("count").getElementsByTagName("span")[0];
-				numNode.innerText = this.number;
+				console.log(this.number, '>>>?????????????????????');
+				return this.number;
 			}
 		}]);
 

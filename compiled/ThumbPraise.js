@@ -87,9 +87,22 @@
 		_createClass(ThumbPraise, [{
 			key: 'addTpl',
 			value: function addTpl() {
+				var _this2 = this;
+
 				//const container=document.getElementsByClassName(this.container)[0];
 				this.container.innerHTML = this.tpl;
-				this.container.onclick = this.addNum.bind(this);
+				this.container.onclick = function () {
+					var number = _this2.addNum();
+					console.log(number, '*********');
+					_this2.updateNum(number);
+				};
+			}
+		}, {
+			key: 'updateNum',
+			value: function updateNum(number) {
+				console.log(this, this.number, '-----------');
+				var numNode = document.getElementById("count").getElementsByTagName("span")[0];
+				numNode.innerText = number;
 			}
 		}]);
 
