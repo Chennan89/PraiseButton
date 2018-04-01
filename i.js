@@ -1,5 +1,4 @@
 window.test = function (num) {
-	aaaaddddaaaaaaaaaaa
     if (num == 1){console.log(num);
         return 1;
     } else{console.log(555);
