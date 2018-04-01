@@ -3,6 +3,7 @@ window.test = function (num) {
         return 1;devdevdevdev
     } else{console.log(555);
         return num + 1;devdevdevdev
+		mastermastermasster
     }
 }
 11111111dev1
