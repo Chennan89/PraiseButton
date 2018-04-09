@@ -1,0 +1,39 @@
+system.js 万能模块加载器
+
+npm list --depth=0 -global查看所有全局安装的模块
+
+npm init初始化package.json文件
+
+npm install --save-dev babel-cli babel-preset-env 安装编译ES6需要的模块
+//在没有任何配置选项的情况下，babel-preset-env 与 babel-preset-latest（或者babel-preset-es2015，babel-preset-es2016和babel-preset-es2017一起）的行为完全相同。所以下面.babelrc中的presets也可以写es2015
+
+必须配置.babelrc文件首要任务！！！
+{
+  "presets": ["env"]
+}
+
+package.json配置
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel components -d compiled"
+  },
+npm run build
+
+也可以全局安装babel-cli，通过下面的方式直接在命令行进行转换
+# 转码结果输出到标准输出
+$ babel example.js
+
+# 转码结果写入一个文件
+# --out-file 或 -o 参数指定输出文件
+$ babel example.js --out-file compiled.js
+# 或者
+$ babel example.js -o compiled.js
+
+# 整个目录转码
+# --out-dir 或 -d 参数指定输出目录
+$ babel src --out-dir lib
+# 或者
+$ babel src -d lib
+
+# -s 参数生成source map文件
+$ babel src -d lib -s
