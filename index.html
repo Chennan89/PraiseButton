@@ -6,17 +6,25 @@
 	<link href="./css/praise.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.21.0/system-production.js"></script>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	
 </head>
 <body>
 	<p id="count">点击次数<span>0</span></p>
 	<div class="circleBG">
 		
 	</div>
+	<!--<script type="module" src="./compiled/main.js"></script>-->
+	<!--<script type="module">
+		import ThumbPraise from './components/main.js'
+		console.log(ThumbPraise);
+		var ele=document.getElementsByClassName("circleBG")[0];
+		new ThumbPraise($(ele));
+	</script>-->
 
 	<script>
 		System.import('./compiled/main.js').then(function(m) {
 			$.fn.praise=function(){
-				console.log(this);
+				console.log(this,'::::::?????????');
 				new m.default(this);
 			}
 

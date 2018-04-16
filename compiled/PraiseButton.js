@@ -59,7 +59,6 @@
 			key: 'addNum',
 			value: function addNum(e) {
 				this.number = this.number + this.step;
-				console.log(this.number, '>>>?????????????????????');
 				return this.number;
 			}
 		}]);

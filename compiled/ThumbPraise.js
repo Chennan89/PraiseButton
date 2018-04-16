@@ -76,7 +76,6 @@
 			var _this = _possibleConstructorReturn(this, (ThumbPraise.__proto__ || Object.getPrototypeOf(ThumbPraise)).call(this, container, tpl));
 
 			_this.tpl = '<div class="palm"></div>\n\t\t\t<div class="thumb">\n\t\t\t\t<div class="rightFour">\n\t\t\t\t\t<span class="finger f1"></span>\n\t\t\t\t\t<span class="finger f2"></span>\n\t\t\t\t\t<span class="finger f3"></span>\n\t\t\t\t\t<span class="finger f4"></span>\n\t\t\t\t\t<span class="f1Right"></span>\n\t\t\t\t</div>\n\t\t\t</div>';
-
 			_this.addTpl(_this.tpl);
 			return _this;
 		}
@@ -91,16 +90,38 @@
 
 				//const container=document.getElementsByClassName(this.container)[0];
 				this.container.innerHTML = this.tpl;
-				this.container.onclick = function () {
-					var number = _this2.addNum();
-					console.log(number, '*********');
+				this.container.onclick = function (e) {
+
+					e.target.classList.add("ani");
+					var number = _this2.addNum(); //用箭头函数 this指向ThumbPraise对象
 					_this2.updateNum(number);
+
+					/*// Chrome, Safari 和 Opera 代码
+     this.container.addEventListener("webkitAnimationEnd", this.delClass("ani"));
+     	// 标准语法
+     this.container.addEventListener("animationend", this.delClass("ani"));*/
 				};
+
+				$(this.container).on("webkitAnimationEnd", function () {
+					console.log(this);
+					$(this).removeClass("ani");
+				});
+
+				/*this.container.onmouseup = function(e){//up向上  
+    console.log(this)
+          e.target.classList.remove("ani");
+          console.log(e.target.classList.value,'mouseup')
+    } */
+			}
+		}, {
+			key: 'delClass',
+			value: function delClass(cName) {
+				console.log(cName, '9999999999999');
+				this.container.classList.remove("ani");
 			}
 		}, {
 			key: 'updateNum',
 			value: function updateNum(number) {
-				console.log(this, this.number, '-----------');
 				var numNode = document.getElementById("count").getElementsByTagName("span")[0];
 				numNode.innerText = number;
 			}
